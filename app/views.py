@@ -2,7 +2,7 @@ from flask import  render_template
 from app import app
 
 #Views
-@app route('/')
+@app.route('/')
 def index():
     
     '''
@@ -11,3 +11,12 @@ def index():
     
     '''
     return render_template('index.html')
+
+@app.route('/news/<int:news_id>')
+def news(news_id):
+    
+    '''
+    Views the news page functionality that returns newshighlightd details and its data
+    
+    '''
+    return render_template('news.html', id = news_id)
