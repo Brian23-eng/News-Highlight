@@ -22,6 +22,15 @@ class SourcesTest(unittest.TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.new_sources, Sources))
         
+    def test_to_check_instance_variables(self):
+        self.assertEqual(self.new_sources.id,'nbc-news')
+        self.assertEqual(self.new_sources.name,'NBC NEWS')
+        self.assertEqual(self.new_sources.description,'Eliud Kipchoge breaks a record')
+        self.assertEqual(self.new_sources.url,'nbcnews.com')
+        self.assertEqual(self.new_sources.category,'general')
+        self.assertEqual(self.new_sources.country,'USA')
+        self.assertEqual(self.new_sources.language,'eng')
+        
         
         
         
