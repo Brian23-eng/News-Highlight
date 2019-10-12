@@ -2,12 +2,12 @@ import unittest
 from models import sources,articles
 
 Sources = sources.Sources
-articles = articles.Articles
+Articles = articles.Articles
 
 class SourcesTest(unittest.TestCase):
     
     '''
-    Test class to tedt the behaviour of the news class
+    Test class to test the behaviour of the sources class
     
     '''
     def setUp(self):
@@ -30,6 +30,29 @@ class SourcesTest(unittest.TestCase):
         self.assertEqual(self.new_sources.category,'general')
         self.assertEqual(self.new_sources.country,'USA')
         self.assertEqual(self.new_sources.language,'eng')
+        
+class ArticlesTest(unittest.TestCase):
+    
+    '''
+    
+     Test class to test the behaviour of the articles class
+     
+    '''
+    
+    def setUp(self):
+        
+        '''
+        
+        Set up method that will run before every Test
+        
+        '''
+        
+        self.new_articles = Articles('kbc','Jane Gichuru','bodies in likoni accident found','the bodies of the two victims in likoni found yesterday','kbc.co.ke','likoni.jpeg','2019-10-12T10:46:00Z')
+        
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_articles, Articles))
+        
+    
         
         
         
