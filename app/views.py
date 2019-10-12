@@ -10,7 +10,9 @@ def index():
     View root page function that returns the index page and  its data
     
     '''
-    return render_template('index.html')
+    
+    title = 'Home - Welcome to the newshighlights website'
+    return render_template('index.html', title = title)
 
 @app.route('/news/<int:news_id>')
 def news(news_id):
@@ -19,4 +21,5 @@ def news(news_id):
     Views the news page functionality that returns newshighlightd details and its data
     
     '''
-    return render_template('news.html', id = news_id)
+    title = 'Home - Welcome to the newshighlights website'
+    return render_template('news.html', id = news_id, title = title)
