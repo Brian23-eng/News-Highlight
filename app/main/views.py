@@ -13,13 +13,13 @@ def index():
     
     '''
     #getting the sources
-    news_sources = get_sources(category)
-    print(news_sources)
+    # news_sources = get_sources(category)
+    # print(news_sources)
     
     
     
     title = 'Home - Welcome to the newshighlights website'
-    return render_template('index.html', title = title, category = news_sources)
+    return render_template('index.html', title = title)
 
 @main.route('/news/<int:news_id>')
 def news(news_id):
