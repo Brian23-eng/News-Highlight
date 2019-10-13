@@ -1,4 +1,25 @@
 from app import app
+from flas_script import Manager,Server
+#creating app instances
+app = create_app('development')
+
+manager = Manager(app)
+manager.add_commannd('server', Server)
+
+
+@manager_command
+def test():
+    '''
+    Run the unit test
+
+    '''
+    import unittest
+    tests = unittest.TestLoader().discover('tests')
+    unittest.TextTestRunner(verbosity=2).run(test)
+
+
+
+
 
 if __name__ == "__main__":
     app.run()
