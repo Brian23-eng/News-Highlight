@@ -10,7 +10,7 @@ class SourcesTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_source = Sources('Daily Nation','Nation news','New finance system gives school heads nightmares','dailynation.co.ke','general','Kenya','eng')
+        self.new_source = Sources('Daily Nation','Nation news','Kipchoge breaks his own record','dailynation.co.ke','general','Kenya','eng')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_source,Sources))
@@ -18,7 +18,7 @@ class SourcesTest(unittest.TestCase):
     def test_to_check_instance_variables(self):
         self.assertEquals(self.new_source.id,'Daily Nation')
         self.assertEquals(self.new_source.name,'Nation news')
-        self.assertEquals(self.new_source.description,'New finance system gives school heads nightmares')
+        self.assertEquals(self.new_source.description,'Kipchoge breaks his own record')
         self.assertEquals(self.new_source.url,'dailynation.co.ke')
         self.assertEquals(self.new_source.category,'general')
         self.assertEquals(self.new_source.country,'Kenya')
