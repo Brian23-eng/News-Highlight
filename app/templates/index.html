@@ -12,8 +12,13 @@
 </head>
 
 <body>
-
-    <h1>Hello news</h1>
+    <!-- News source section -->
+    <h2>News Sources</h2>
+    <ul>
+        {%for news_sources in source%}
+        <li>{{%news_source.name %}}</li>
+        {% endfor %}
+    </ul>
 
 </body>
 
