@@ -1,4 +1,4 @@
-from app import app
+from app import create_app
 from flas_script import Manager,Server
 #creating app instances
 app = create_app('development')

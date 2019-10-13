@@ -1,9 +1,10 @@
-from flask import  render_template
-from app import app
+from flask import  render_template,redirect,url_for,request
+from . import main
+from ..models import Sources
 from .requests import get_sources
 
 #Views
-@app.route('/')
+@main.route('/')
 def index():
     
     '''
@@ -20,7 +21,7 @@ def index():
     title = 'Home - Welcome to the newshighlights website'
     return render_template('index.html', title = title, category = news_sources)
 
-@app.route('/news/<int:news_id>')
+@main.route('/news/<int:news_id>')
 def news(news_id):
     
     '''

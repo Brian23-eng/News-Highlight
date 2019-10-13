@@ -2,7 +2,7 @@ from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import config_options
 
-bootstarp = Bootstrap()
+bootstrap = Bootstrap()
 
 #initializing application
 def create_app(config_name):
@@ -10,11 +10,17 @@ def create_app(config_name):
 
     #create the app configurations
     app.config.from_object(config_options[config_name])
+    
+    #Initializing flask extension
+    bootstrap.init_app(app)
+    
+    #registering the blue print
+    from main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
 
 
 #Setting up Configuration
-app.config.from_object(DevConfig)
-app.config.from_pyfile('config.py')
+fro .requests import configure_request
+configure_request(app)
 
-
-from app import views
+return app
