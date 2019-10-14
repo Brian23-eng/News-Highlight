@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% import 'macros.html' as macro %}
+
 
 <head>
     <meta charset="UTF-8"> {% if title %}
@@ -14,6 +14,6 @@
 <body>
     <!-- News source section -->
     <h2>News Sources</h2>
-    {% for source in sources %} {{source.name}} {% endfor %}
+    {{macro.displaySourceList(name)}}
 
-</html>
+</body>
