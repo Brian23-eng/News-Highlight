@@ -1,20 +1,16 @@
+{% extends 'bootstrap/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"> {% if title %}
-    <title>{{ title }}</title>
-    {% else %}
+    <meta charset="UTF-8">
 
-    <title>Welcome to the newshighlights website</title>
-
-    {% endif %}
+    <title>Home</title>
 </head>
 
 <body>
-    <!-- content block -->
-    {% block content %} {% endblock%}
-
+    <!-- Navbar block -->
+    {% block navbar %} {% include 'navbar.html' %} {% endblock %}
 </body>
 
 </html>
