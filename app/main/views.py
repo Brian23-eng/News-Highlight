@@ -16,7 +16,7 @@ def index():
     sources = get_sources()
     print(sources)
     
-    title = 'Home - Welcome to the newshighlights website'
+    title = 'Home - Some of the best news sources'
     return render_template('index.html', title = title, sources = sources)
 
 @main.route('/news')
@@ -27,6 +27,6 @@ def news():
     
     '''
     articles = get_articles()
-    title = 'Home - Welcome to the newshighlights website'
+    title = 'Articles - Some of the articles'
     return render_template('news.html', articles=articles, title = title)
 
