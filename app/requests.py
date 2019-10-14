@@ -13,10 +13,10 @@ api_key = None
 
 
 api_key = Config.NEWS_API_KEY
-base_url = Config.NEWS_SOURCES_BASE_URL
+base_url = Config.SOURCES_BASE_URL
 articles_url = Config.ARTICLES_BASE_URL
 
-get_sources_url = base_url.format(base_url,api_key)
+# get_sources_url = base_url.format(base_url,'f82b03b100064f2dbda8dc8c807bc672')
     
  
  
@@ -25,20 +25,25 @@ def get_sources():
 	'''
 	Function that gets the json response to our url request
 	'''
-	
+	# get_sources_url = base_url.format(base_url,'f82b03b100064f2dbda8dc8c807bc672')
+	# print(get_sources_url)
 
-	with urllib.request.urlopen(get_sources_url) as url:
+	with urllib.request.urlopen(base_url + 'f82b03b100064f2dbda8dc8c807bc672') as url:
+     
 		get_sources_data = url.read()
 		get_sources_response = json.loads(get_sources_data)
 
 		sources_results = None
 
 		if get_sources_response['sources']:
-			sources_results = process_results(get_sources_response['sources'])
+			sources_results_list = get_sources_response['sources']
+			sources_results = process_sources(sources_results_list)
 
 	return sources_results
 
-def process_results(sources_list):
+  
+
+def process_sources(sources_list):
     
     '''
     Function  that processes the source result and transform them to a list of Objects
@@ -64,7 +69,7 @@ def process_results(sources_list):
         language = source_item.get('language')
         
         if url:
-            source_object = Sources(id,name.description,url,category,country,language)
+            source_object = Sources(id,name,description,url,category,country,language)
             source_results.append(source_object)
             
         
@@ -75,7 +80,7 @@ def get_articles():
 	Function that processes the articles and returns a list of articles objects
 	'''
 
-	with urllib.request.urlopen(articles_url+'f82b03b100064f2dbda8dc8c807bc672') as url:
+	with urllib.request.urlopen(articles_url+ 'f82b03b100064f2dbda8dc8c807bc672') as url:
 		articles_results = json.loads(url.read())
 
 

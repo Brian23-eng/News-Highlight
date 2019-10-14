@@ -13,10 +13,13 @@ def index():
     View root page function that returns the index page and  its data
     
     '''
-    
+    business = get_sources('business')
+    sports = get_sources('sports')
+    technology = get_sources('technology')
+    entertainment = get_sources('entertainment')
     
     title = 'Home - Welcome to the newshighlights website'
-    return render_template('index.html', title = title, business_sources = business_sources, sports_sources = sports_sources, technology_sources = technology_sources, entertainment_sources = ent)
+    return render_template('index.html', title = title, business = business, sports = sports, technology = technology, entertainment = entertainment)
 
 @main.route('/news')
 def news():
